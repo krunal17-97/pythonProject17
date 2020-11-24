@@ -1,0 +1,46 @@
+{% extends 'account/main.html' %}
+
+{% block content %}
+<div>
+    <form method="get">
+        {{myfilter.form}}
+        <input type="submit" name="search" value="search">
+
+    </form>
+</div>
+
+   <div>
+        <h5>Product</h5>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date of Issue</th>
+                <th>Price</th>
+
+            </tr>
+            </thead>
+
+
+            <tbody>
+            {% for i in products %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.date_created}}</td>
+                    <td>{{i.price}}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}
+
+
+

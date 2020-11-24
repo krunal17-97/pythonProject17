@@ -1,0 +1,59 @@
+{% extends 'account/main.html' %}
+
+{% block content %}
+<br>
+    <div>
+        <h5>User</h5>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                {% for u in use %}
+                 <tr>
+                        <td>{{u.name}}</td>
+                        <td>{{u.email}}</td>
+                 </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <div>
+        <h5>Order</h5>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Date Ordered</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                {% for j in orders %}
+                <tr>
+                    <td>{{j.product}}</td>
+                    <td>{{j.date_created}}</td>
+                    <td>{{j.status}}</td>
+                    <td><a href="{% url 'updateorder' j.id%}">Update</a> </td>
+                    <td><a href="{% url 'deleteorder' j.id%}">Delete</a> </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}
+
